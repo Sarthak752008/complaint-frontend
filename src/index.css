@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    @apply bg-dark-950 text-dark-100 font-sans antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-dark-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-dark-600 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-dark-500; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-dark-800/50 backdrop-blur-xl border border-dark-700/50 rounded-2xl;
+  }
+  .glass-input {
+    @apply w-full px-4 py-3 bg-dark-800/80 border border-dark-700/50 rounded-xl text-dark-100
+           placeholder-dark-500 outline-none transition-all duration-300
+           focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20;
+  }
+  .glass-select {
+    @apply glass-input appearance-none cursor-pointer
+           bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='none'%20viewBox='0%200%2024%2024'%20stroke='%2394a3b8'%3E%3Cpath%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%20d='M19%209l-7%207-7-7'/%3E%3C/svg%3E")]
+           bg-no-repeat bg-[position:right_12px_center] bg-[length:18px] pr-10;
+  }
+  .glass-select option { @apply bg-dark-800 text-dark-100; }
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-brand-600 to-brand-500 text-white font-semibold rounded-xl
+           shadow-lg shadow-brand-500/25 hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5
+           active:translate-y-0 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+  .btn-ghost {
+    @apply px-4 py-2 text-dark-400 hover:text-dark-100 hover:bg-dark-700/50 rounded-xl transition-all duration-200;
+  }
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wide;
+  }
+  .skeleton {
+    @apply bg-gradient-to-r from-dark-800 via-dark-700 to-dark-800 bg-[length:200%_100%] animate-shimmer rounded-lg;
+  }
+}
